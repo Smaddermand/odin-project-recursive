@@ -43,3 +43,105 @@ function fibsRec(n, arr = [0, 1]) {
   }
 
   console.log(fibsRec(8));
+
+
+
+
+    function merge(A, B) {
+        let i = 0;
+        let j = 0;
+        let k = 0;
+        let C = [];
+        let m = A.length;
+        let n = B.length;
+    
+        while ( i < m && j < n) {
+    
+            if (A[i] < B[j]) {
+                C[k] = A [i];
+
+                i++;
+            } else {
+                C[k] = B[j];
+
+                j++;
+            }
+            k++
+        }
+    
+        for ( ; i <= m; i++){
+            C[k] = A[i];
+            k++;
+        }
+        for ( ; j <= n; j++) {
+            C[k] = B[j];
+            k++;
+        }
+    
+        return C;
+    }
+    
+
+
+function mergeSort(arr) {
+    if (arr.length == 1) {
+        return arr;
+    } else {
+        //find mid
+        let mid = arr.length / 2;
+        
+        // sort left half
+        let A = mergeSort(arr.slice(0, mid));
+
+        // sort right half
+        let B = mergeSort(arr.slice(mid));
+
+
+        let i = 0;
+        let j = 0;
+        let k = 0;
+        let C = [];
+        let m = A.length;
+        let n = B.length;
+    
+        while ( i < m && j < n) {
+    
+            if (A[i] < B[j]) {
+                C[k] = A [i];
+
+                i++;
+            } else {
+                C[k] = B[j];
+
+                j++;
+            }
+            k++
+        }
+    
+        for ( ; i < m; i++){
+            C[k] = A[i];
+            k++;
+        }
+        for ( ; j < n; j++) {
+            C[k] = B[j];
+            k++;
+        }
+    
+        return C;
+        
+
+    }
+}
+
+
+
+
+const A = [1, 3, 5, 7];
+const B = [2, 4, 6, 8];
+
+
+console.log("hello " + merge(A, B));
+
+const arr = [5, 3, 2, 4, 6, 1, 8, 7, 9, 14];
+
+console.log(mergeSort(arr));
